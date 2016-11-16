@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<!-- css -->
+	<link href="lib/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="lib/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+	<link href="lib/css/jcarousel.css" rel="stylesheet" />
+	<link href="lib/css/flexslider.css" rel="stylesheet" />
+	<link href="lib/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+	<link href="lib/css/style.css" rel="stylesheet" />
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+	<div id="wrapper" class="home-page">
+		<div class="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="pull-left hidden-xs">Smart Home</p>
+						<p class="pull-right"><i class="fa fa-phone"></i>联系电话. (+001) 123-456-789</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- start header -->
+		<header>
+			<div class="navbar navbar-default navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+					</div>
+					<div class="navbar-collapse collapse ">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="index.html">主页</a></li>
+							<li class="dropdown">
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle">产品服务 <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="service-hardware.html">硬件接入</a></li>
+									<li><a href="service-SpeechRecognition.html">语音识别</a></li>
+									<li><a href="service-ImageRecognition.html">图像识别</a></li>
+									<li><a href="service-life.html">生活服务</a></li>
+									<li><a href="service-scene.html">情景识别</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="services.html" data-toggle="dropdown" class="dropdown-toggle">整体解决方案<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">智能家庭控制方案</a></li>
+									<li><a href="#">智能办公解决方案</a></li>
+									<li><a href="#">智能设备控制方案</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="projects.html" data-toggle="dropdown" class="dropdown-toggle">用户中心<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">已开通服务</a></li>
+									<li><a href="#">我的应用</a></li>
+									<li><a href="#">数据分析</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="pricing.html" data-toggle="dropdown" class="dropdown-toggle">帮助支持<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">服务条款</a></li>
+									<li><a href="#">使用说明</a></li>
+									<li><a href="#">联系方式</a></li>
+									<li><a href="#">常见问题</a></li>
+								</ul>
+							</li>
+							<li><a href="contact.html">联系我们</a></li>
+                            <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login">登陆</button>
+                            <button type="button" id="btn_register" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#register">注册</button>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 登陆模态框（Modal） -->
+			<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true" style="top:25%">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form>
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="loginLabel">登录</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="username">用户名</label>
+									<input class="form-control" id="username" name="username" type="text" />
+                                    <br>
+									<label for="password">密码</label>
+									<input class="form-control" id="password" name="password" type="text" />
+                                    <div class="checkbox" style="margin-left:5%">
+                                        <label>
+                                            <input type="checkbox"> 记住账号
+                                        </label>
+                                        <button type="button" class="btn-link" style="margin-left:70%">忘记密码</button>
+                                    </div>
+                                    <button type="button" id="btn_login" class="btn" style="margin-left:25%" data-dismiss="modal">提交</button>
+                                    <button type="button" id="btn_register" class="btn btn-default navbar-btn" data-dismiss="modal" data-toggle="modal" data-target="#register" style="margin-left:25%">注册</button>
+								</div>
+							</div>
+						</form>
+					</div>
+			</div>
+        </div>
+            <!--注册模态框-->
+            <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-label="registerLabel" aria-hidden="true" style="top:25%" >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h1 class="modal-title" id="registerLabel" style="text-align:center">注册</h1>
+                        </div>
+                        <form action="" onsubmit="return check()">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="username">邮箱</label>
+                                    <input class="form-control" type="email" id="username_r" name="username" placeholder="请输入您的常用邮箱"/>
+                                    <label for="username">密码</label>
+                                    <input class="form-control" id="password_r" name="username" placeholder="请输入密码"/>
+                                    <label for="username">密码确认</label>
+                                    <input class="form-control" id="repassword" name="username" placeholder="请再次输入密码"/>
+                                    <label for="username">验证码</label>
+                                    <div class="form-group form-horizontal">
+                                    <input class="form-control" id="vcode" name="username" style="width:50%;float:left" />
+                                        <div>
+                                        <span class="col-lg-4 col-md-offset-1" id="code" title="看不清，换一张" style="color:white; background-color: black;font-size:20pt;padding: 5px 35px 5px 35px;cursor: pointer"></span>  
+                                        </div> 
+                                    </div>                                
+                                </div>
+                                <br>
+                                <br>
+                                <input type="submit" value="注册"  class="btn btn-group-justified" onmouseover="this.style.backgroundColor='#FF8D00'" onmouseout="this.style.backgroundColor='#FC5628'">
+                                <div>
+                                    <h5></h5>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+		</header>
+			<section id="content" class="no-padd">
+				<div class="main-services">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="section-title text-center">
+									<h2>服务</h2>
+									<p>什 么 鬼 啊, 产品 没有 告诉 我. 要 填 啥 内容 啊！！！什 么 鬼 啊, 产品 没有 告诉 我. 要 填 啥 内容 啊！！！ <br>什 么 鬼 啊, 产品 没有 告诉 我. 要 填 啥 内容 啊！！！什 么 鬼
+										啊, 产品 没有 告诉 我. 要 填 啥 内容 啊</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="skill-home">
+								<div class="skill-home-solid clearfix">
+									<div class="col-md-3 col-sm-6 text-center">
+										<span class="icons c1"><i class="fa fa-home"></i></span>
+										<div class="box-area">
+											<h3>生活服务</h3>
+											<p>什 么 鬼 啊, 产品 没有 告诉 我. 要 填 啥 内容 啊！！！什 么 鬼 啊, 产品 没有 告诉 我. 要 填 啥 内容 啊！！！什 么 鬼 啊, 产品 没有 告诉 我. 要 填 啥 内容 啊</p>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-6 text-center">
+										<span class="icons c2"><i class="fa fa-rocket"></i></span>
+										<div class="box-area">
+											<h3>数据处理模型</h3>
+											<p>我们提供最好用的数据模型接口，将为您进行精确的数据挖掘服务。您只需设计应用场景的相关参数，我们将使用自己的庞大的数据库对您的设计进行分析修正，使您的场景设计更贴近用户需求。</p>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-6 text-center">
+										<span class="icons c3"><i class="fa fa-trophy"></i></span>
+										<div class="box-area">
+											<h3>语音、图像识别</h3>
+											<p>我们的语音识别技术与图像识别技术是专门针对家庭生活场景进行开发的技术，能够识别各种家庭生活命令及生活状态，可以为您开发自己的智能家居场景应用提供稳定的切入口。</p>
+										</div>
+									</div>
+									<div class="col-md-3 col-sm-6 text-center">
+										<span class="icons c4"><i class="fa fa-star"></i></span>
+										<div class="box-area">
+											<h3>在线调试</h3>
+											<p>什 么 鬼 啊, 产品 没有 告诉 我. 要 填 啥 内容 啊！！！什 么 鬼 啊, 产品 没有 告诉 我. 要 填 啥 内容 啊！！！什 么 鬼 啊, 产品 没有 告诉 我. 要 填 啥 内容 啊</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</section>
+
+			<section class="section-padding">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="section-title text-center">
+								<h2>关于我们</h2>
+								<p>我们是一群励志成为全中国乃至全世界第一的人工智能云平台 <br>我们的工程师们都是积极向上朝气蓬勃玉树凌风风度翩翩的美少年.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6 col-sm-6">
+							<div class="about-text">
+								<p>改变就在一念之间，加入我们让这个世界更加美好，相信我们你会变得更帅</p>
+
+								<ul class="withArrow">
+									<li><span class="fa fa-angle-right"></span> 随便填充点文字</li>
+									<li><span class="fa fa-angle-right"></span> 页面看着会更加丰富</li>
+									<li><span class="fa fa-angle-right"></span> 恩不错就这样</li>
+									<li><span class="fa fa-angle-right"></span> 这样应该可以了</li>
+								</ul>
+								<a href="#" class="btn btn-primary">一个按钮</a>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6">
+							<div class="about-image">
+								<img src="img/about.jpg" alt="About Images">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="carousel" class="quote-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<div class="quote"><i class="fa fa-quote-left fa-4x"></i></div>
+							<div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
+								<!-- Carousel indicators -->
+								<ol class="carousel-indicators">
+									<li data-target="#fade-quote-carousel" data-slide-to="0"></li>
+									<li data-target="#fade-quote-carousel" data-slide-to="1"></li>
+									<li data-target="#fade-quote-carousel" data-slide-to="2" class="active"></li>
+									<li data-target="#fade-quote-carousel" data-slide-to="3"></li>
+								</ol>
+								<!-- Carousel items -->
+								<div class="carousel-inner">
+									<div class="item">
+										<div class="profile-circle"><img class="img-responsive" src="img/guo.jpg" alt=""></div>
+										<blockquote>
+											<p>这是我们年轻帅气的郭网管，虽然有点逗逼，但是人家是土豪</p>
+										</blockquote>
+									</div>
+									<div class="item">
+										<div class="profile-circle"><img class="img-responsive" src="img/team2.jpg" alt=""></div>
+										<blockquote>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore
+												optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+										</blockquote>
+									</div>
+									<div class="active item">
+										<div class="profile-circle"><img class="img-responsive" src="img/team3.jpg" alt=""></div>
+										<blockquote>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore
+												optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+										</blockquote>
+									</div>
+									<div class="item">
+										<div class="profile-circle"><img class="img-responsive" src="img/team4.jpg" alt=""></div>
+										<blockquote>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore
+												optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+										</blockquote>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="widget">
+								<h5 class="widgetheading">帮助</h5>
+								<ul class="link-list">
+									<li><a href="#">使用指南</a></li>
+									<li><a href="#">常见问题</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="widget">
+								<h5 class="widgetheading">资源</h5>
+								<ul class="link-list">
+									<li><a href="#">用户资料库</a></li>
+									<li><a href="#">SDK 下载</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="widget">
+								<h5 class="widgetheading">用户中心</h5>
+								<ul class="link-list">
+									<li><a href="#">创建应用</a></li>
+									<li><a href="#">后台数据</a></li>
+									<li><a href="#">开通服务</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="widget">
+								<h5 class="widgetheading">联系我们</h5>
+								<ul class="link-list">
+									<li><a href="#">服务商合作 www.xxxxx.com</a></li>
+									<li><a href="#">业务咨询 xxxxxxxxxxx</a></li>
+									<li><a href="#">技术咨询 www.xxxxx.com</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="sub-footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="copyright">
+									<p>
+										Copyright &copy; 2016.上海百芝龙科技有限公司
+									</p>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<ul class="social-network">
+									<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+									<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+									<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+	</div>
+	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+	<!-- javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="lib/js/jquery.js"></script>
+	<script src="lib/js/jquery.easing.1.3.js"></script>
+	<script src="lib/js/bootstrap.min.js"></script>
+	<script src="lib/js/jquery.fancybox.pack.js"></script>
+	<script src="lib/js/jquery.fancybox-media.js"></script>
+	<script src="lib/js/jquery.flexslider.js"></script>
+	<script src="lib/js/animate.js"></script>
+	<!-- Vendor Scripts -->
+	<script src="lib/js/modernizr.custom.js"></script>
+	<script src="lib/js/jquery.isotope.min.js"></script>
+	<script src="lib/js/jquery.magnific-popup.min.js"></script>
+	<script src="lib/js/animate.js"></script>
+	<script src="lib/js/custom.js"></script>
+	<script src="lib/js/owl-carousel/owl.carousel.js"></script>
+</body>
+            <!--验证码生成-->
+            <script type="text/javascript">
+
+        var code;//声明一个变量用于存储生成的验证码
+        document.getElementById("btn_register").onclick = changeImg;
+        document.getElementById("code").onclick=changeImg;
+        function changeImg(){
+            //alert("换图片");
+            var arrays=new Array(
+                '1','2','3','4','5','6','7','8','9','0',
+                'a','b','c','d','e','f','g','h','i','j',
+                'k','l','m','n','o','p','q','r','s','t',
+                'u','v','w','x','y','z',
+                'A','B','C','D','E','F','G','H','I','J',
+                'K','L','M','N','O','P','Q','R','S','T',
+                'U','V','W','X','Y','Z'
+            );
+            code='';//重新初始化验证码
+            //alert(arrays.length);
+            //随机从数组中获取四个元素组成验证码
+            for(var i=0;i<4;i++){
+            //随机获取一个数组的下标
+                var r=parseInt(Math.random()*arrays.length);
+                code+=arrays[r];
+                //alert(arrays[r]);
+            }
+            //alert(code);
+            document.getElementById('code').innerHTML=code;//将验证码写入指定区域
+        }
+
+        //效验验证码(表单被提交时触发)
+        function check(){
+            //获取用户输入的验证码
+            var input_code=document.getElementById('vcode').value;
+            //alert(input_code+"----"+code);
+            if(input_code.toLowerCase()==code.toLowerCase())
+            {
+                //验证码正确(表单提交)
+                return true;
+            }
+            alert("请输入正确的验证码!");
+            //验证码不正确,表单不允许提交
+            return false;
+        }
+            </script>   
+            <!--注册提交-->
+            <script type="text/javascript">
+                $(function () {
+                    var $btn = $("#btn_login");
+                    $btn.on(
+                        "click", function () {
+                            alert("正在登陆");
+                            var $username = $("#username").val();
+                            var $password = $("#password").val();
+                            alert($username + "," + $password);
+                            $.ajax({
+                                url: "http://lingfeng.me/api/login",
+                                data: { "user": $username, "password": $password },
+                                dataType: "json",async: false,
+                                type: "GET",
+								xhrFields: {
+										withCredentials: true
+								},
+                                success: function (data,status,text) {
+                                    if (data.state == 200){
+                                        alert("登陆成功");
+										window.location.href="./application/app-onlineDebug.html";}
+                                    else if (data.err != null){
+                                        alert(data.message);
+									}
+                                },
+                                error: function(XMLHttpRequest, textStatus, errorThrown) {
+									alert(XMLHttpRequest.status);
+									alert(XMLHttpRequest.readyState);
+									alert(textStatus);
+								}
+                            });
+                        })
+                })
+
+
+            </script>
+</html>
