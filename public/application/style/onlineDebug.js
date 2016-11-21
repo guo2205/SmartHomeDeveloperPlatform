@@ -2,7 +2,6 @@ $(function () {
     var $selectArea = $('select[id="select-area"]')
     var $selectDevice = $('select[id="select-device"]'); 
 
-    alert(document.cookie);
     $("#addDevices").on("click", 
     function () {
         $.ajax({

@@ -158,6 +158,11 @@
 				<div class="col-md-6 column">
 					<div class="row">
 						<div><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#add">添加应用</button></div>
+						<div>
+							<ul class="list-group">
+								<li class="list-group-item">test<span style="float：right;" ><a href="./app-onlineDebug.html">调试</a></span></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -237,24 +242,18 @@
 						<form>
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								<h4 class="modal-title" id="addLabel">添加设备</h4>
+								<h4 class="modal-title" id="addLabel">添加应用</h4>
 							</div>
 							<div class="modal-body">
 								<div class="form-group">
-									<label for="username">区域</label>
-									<select class="form-control" id="select-area" name="" >										
-										<option value="0"></option>
-									</select>
+									<label for="appname">应用名</label>
+									<input class="form-control" id="appname" name="appname" type="text" />
                                     <br>
-									<label for="username">设备</label>
+									<label for="username">应用类型</label>
 									<select class="form-control" id="select-device" name="" >
 										<option value="0"></option>
-										<option value="1">电视</option>
-										<option value="2">热水壶</option>
+										<option value="1">智能家居</option>
 									</select>
-                                    <br>
-									<label for="nickname">昵称</label>
-									<input class="form-control" id="nickname" name="nickname" type="text" />
                                     <button  id="addDevices" type="button" id="btn_login" class="btn" style="margin-left:25%" data-dismiss="modal">提交</button>
                                     <button type="button" id="btn_register" class="btn btn-default navbar-btn" data-dismiss="modal" data-toggle="modal" data-target="#register" style="margin-left:25%">取消</button>
 								</div>
@@ -289,7 +288,42 @@
 			//$(e.target).addClass('active');
 			$(this).addClass('active');
 		});
-	});
+		
+		$.ajax({
+            url: "http://lingfeng.me/api/queryApp",
+            dataType: "json",
+            data:{},
+            type: "GET",    
+            headers: {'Cookie' : document.cookie },
+            success: function (data) {
+                alert(data.param[0].name);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("XMLHttpRequest: "+XMLHttpRequest);
+                alert("textStatus: "+textStatus);
+                alert("errorThrown: "+errorThrown);        
+            }
+        });
+
+    $("#addDevices").on("click", 
+    function () {
+        $.ajax({
+            url: "http://lingfeng.me/api/createApp",
+            dataType: "json",
+            data:{"appname":$("#appname").val()},
+            type: "GET",    
+            headers: {'Cookie' : document.cookie },
+            success: function (data) {
+                alert("添加成功");
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("XMLHttpRequest: "+XMLHttpRequest);
+                alert("textStatus: "+textStatus);
+                alert("errorThrown: "+errorThrown);        
+            }
+        });
+    });
+});
 
 	</script>
 

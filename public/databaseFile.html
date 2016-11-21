@@ -1,0 +1,1651 @@
+<html>
+
+<head>
+    <title>数据库设计文档 -- test</title>
+    <style type='text/css'>
+        body,
+        td {
+            font-family: verdana;
+            font-size: 12px;
+            line-height: 150%;
+        }
+        
+        table {
+            width: 100%;
+            background-color: #ccc;
+            margin: 5px 0;
+        }
+        
+        td {
+            background-color: #fff;
+            padding: 3px;
+            padding-left: 10px;
+        }
+        
+        thead td {
+            text-align: center;
+            font-weight: bold;
+            background-color: #eee;
+        }
+        
+        a:link,
+        a:visited,
+        a:active {
+            color: #015FB6;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #E33E06;
+        }
+    </style>
+</head>
+<body style='text-align:center;'>
+    <div style='width:800px; margin:20px auto; text-align:left;'><a name='index' />
+        <H2 style='text-align:center; line-height:50px;'>数据库设计文档</H2>
+        <div><b>数据库名：ZhiNengJiaJu</b></div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>表名</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td><a href='#Appliance'>Appliance</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td><a href='#CityCode'>CityCode</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td><a href='#CityWeather'>CityWeather</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td><a href='#Face'>Face</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>5</td>
+                <td><a href='#FaceGroup'>FaceGroup</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>6</td>
+                <td><a href='#FacePerson'>FacePerson</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>7</td>
+                <td><a href='#InfraredSignal'>InfraredSignal</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>8</td>
+                <td><a href='#ManSpeechModel'>ManSpeechModel</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>9</td>
+                <td><a href='#PetName'>PetName</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>10</td>
+                <td><a href='#WeatherCode'>WeatherCode</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>11</td>
+                <td><a href='#WeatherHourly'>WeatherHourly</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>12</td>
+                <td><a href='#WifiSignal'>WifiSignal</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>13</td>
+                <td><a href='#WomanSpeechModel'>WomanSpeechModel</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>14</td>
+                <td><a href='#corpus_f'>corpus_f</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>15</td>
+                <td><a href='#corpus_q'>corpus_q</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>16</td>
+                <td><a href='#device'>device</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>17</td>
+                <td><a href='#environment'>environment</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>18</td>
+                <td><a href='#family'>family</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>19</td>
+                <td><a href='#familyUser'>familyUser</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>20</td>
+                <td><a href='#sceneOrders'>sceneOrders</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>21</td>
+                <td><a href='#test'>test</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>22</td>
+                <td><a href='#user'>user</a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>23</td>
+                <td><a href='#version'>version</a></td>
+                <td></td>
+            </tr>
+        </table><a name='Appliance' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：Appliance</b></div>
+        <div>说明：家用电器表,存储用户的电器设备的基本信息，如设备所属的一些编号及家庭、类型等</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>applianceCDK</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>家用电器唯一标识码</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>uuid</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>设备类别标识码</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>applianceType</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>设备类型</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>5</td>
+                <td>location</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>房间位置</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>6</td>
+                <td>familyid</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>家庭唯一标识码</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>7</td>
+                <td>petName</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>设备昵称</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>8</td>
+                <td>config</td>
+                <td align='center'>text</td>
+                <td align='center'>65535</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>保留字段</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>9</td>
+                <td>signalMode</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>品牌类型</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>10</td>
+                <td>oid</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>欧瑞博家电ID</td>
+            </tr>
+        </table><a name='CityCode' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：CityCode</b></div>
+        <div>说明：记录城市之间的关系，用于天气查询等服务</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td>自增id</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>city</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td>城市名称</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>code</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td>城市代码</td>
+            </tr>
+        </table><a name='CityWeather' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：CityWeather</b></div>
+        <div>说明：</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>city</td>
+                <td align='center'>varchar(30)</td>
+                <td align='center'>30</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>城市名称</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>xinzhiJson</td>
+                <td align='center'>text</td>
+                <td align='center'>65535</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>详细信息</td>
+            </tr>
+        </table><a name='Face' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：Face</b></div>
+        <div>说明：微软人脸识别人脸记录表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>Pid</td>
+                <td align='center'>varchar(50)</td>
+                <td align='center'>50</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>微软组别</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>Face</td>
+                <td align='center'>varchar(50)</td>
+                <td align='center'>50</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>脸部ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>Furl</td>
+                <td align='center'>varchar(200)</td>
+                <td align='center'>200</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>原始图片保存路径</td>
+            </tr>
+        </table><a name='FaceGroup' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：FaceGroup</b></div>
+        <div>说明：微软人脸识别组别表，关联家庭与微软组别之间的关系</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>Fid</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>关联家庭表ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>Groupid</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>微软组别</td>
+            </tr>
+        </table><a name='FacePerson' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：FacePerson</b></div>
+        <div>说明：微软人脸识别用户记录表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>Gid</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>组ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>Pname</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>Pid</td>
+                <td align='center'>varchar(50)</td>
+                <td align='center'>50</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table><a name='InfraredSignal' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：InfraredSignal</b></div>
+        <div>说明：设备红外线控制表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>applianceCDK</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>家电设备ID，关联家电设备表applianceCDK</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>controlType</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>操作</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>signalCode</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>信号码</td>
+            </tr>
+        </table><a name='ManSpeechModel' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：ManSpeechModel</b></div>
+        <div>说明：语料模板表，根据luis意图提供多样化的语料</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>SpeechCode</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>luis意图编号</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>SpeechModel</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>语料模板字符串</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>SpeechIntent</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table><a name='PetName' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：PetName</b></div>
+        <div>说明：家用电器昵称表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td>0</td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>deviceType</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>设备类型</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>petName</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>昵称</td>
+            </tr>
+        </table><a name='WeatherCode' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：WeatherCode</b></div>
+        <div>说明：心知与雅虎的天气类型表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>text</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>天气描述</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>code_xz</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>心知的code</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>code_yahoo</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center' >yahoo天气code</td>
+            </tr>
+        </table><a name='WeatherHourly' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：WeatherHourly</b></div>
+        <div>说明：</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>time</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>时间</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>city_id</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>城市id</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>code</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>天气代码</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>5</td>
+                <td>temperature</td>
+                <td align='center'>text</td>
+                <td align='center'>65535</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>温度</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>6</td>
+                <td>humidity</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>相对湿度</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>7</td>
+                <td>wind_direction</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>风向</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>8</td>
+                <td>wind_speed</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>风速</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>9</td>
+                <td>precip</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>降水量</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>10</td>
+                <td>update_time</td>
+                <td align='center'>timestamp</td>
+                <td align='center'>-1</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td>CURRENT_TIMESTAMP</td>
+                <td align='center'>更新时间</td>
+            </tr>
+        </table><a name='WifiSignal' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：WifiSignal</b></div>
+        <div>说明：wifi家电设备控制表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>deviceID</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>家电设备唯一标识码，对应家用电器表CDK</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>operation</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>操作</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>signalCode</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>信号码</td>
+            </tr>
+        </table><a name='corpus_f' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：corpus_f</b></div>
+        <div>说明：图灵语料导入工具-问题表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>f</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>问题字符串</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>code</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>问题编号</td>
+            </tr>
+        </table><a name='corpus_q' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：corpus_q</b></div>
+        <div>说明：图灵语料导入工具-回答表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>q</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>回答字符串</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>role</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>回答角色</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>code</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>问题编号</td>
+            </tr>
+        </table><a name='device' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：device</b></div>
+        <div>说明：ROO1主机表，记录了家庭里的所有主机的相关信息</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>deviceCDK</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>主机唯一标识码</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>locationID</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td align='center'>999</td>
+                <td align='center'>设备所属区域</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>familyID</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>设备所属家庭编号，关联家庭表</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>5</td>
+                <td>locationPetName</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'></td>
+            </tr>
+        </table><a name='environment' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：environment</b></div>
+        <div>说明：环境传感器表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>deviceID</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>家用设备唯一标识码，对应家用电器表CDK</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>temperature</td>
+                <td align='center'>float</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>温度</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>humidness</td>
+                <td align='center'>float</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>湿度</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>pm</td>
+                <td align='center'>float</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>细颗粒物指数</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>5</td>
+                <td>light</td>
+                <td align='center'>float</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>亮度</td>
+            </tr>
+        </table><a name='family' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：family</b></div>
+        <div>说明：家庭表，记录了家庭的基本信息</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>membersCount</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>家庭总人数</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>province</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>保留字段</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>city</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>保留字段</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>5</td>
+                <td>address</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>保留字段</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>6</td>
+                <td>admin</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>家庭管理员，关联用户表ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>7</td>
+                <td>hat</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>家庭设置的外设（帽子）</td>
+            </tr>
+        </table><a name='familyUser' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：familyUser</b></div>
+        <div>说明：家庭与用户关系表，记录了用户与家庭之间的关系</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>familyID</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td>0</td>
+                <td align='center'>家庭ID，关联家庭表ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>userID</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>用户ID，关联用户表ID</td>
+            </tr>
+        </table><a name='sceneOrders' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：sceneOrders</b></div>
+        <div>说明：家庭自定义场景表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>FID</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>家庭ID，关联家庭表ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>Name</td>
+                <td align='center'>varchar(30)</td>
+                <td align='center'>30</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>用户自定义的场景名称</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>Txt</td>
+                <td align='center'>text</td>
+                <td align='center'>65535</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>执行场景任务的字符串</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>5</td>
+                <td>type</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'></td>
+            </tr>
+        </table><a name='user' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：user</b></div>
+        <div>说明：用户表，记录了用户的基本信息</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>username</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>用户名</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>password</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>密码</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>Name</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>姓名</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>5</td>
+                <td>age</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>年龄</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>6</td>
+                <td>sex</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>性别</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>7</td>
+                <td>Tel</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>电话</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>8</td>
+                <td>familyID</td>
+                <td align='center'>varchar(20)</td>
+                <td align='center'>20</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td>"0"</td>
+                <td align='center'>所属家庭ID，关联家庭表ID</td>
+            </tr>
+        </table><a name='version' />
+        <div style='margin-top:30px;'><a href='#index' style='float:right; margin-top:6px;'>返回目录</a><b>表名：version</b></div>
+        <div>说明：客户端版本表</div>
+        <div>数据列：</div>
+        <table cellspacing='1' cellpadding='0'>
+            <thead>
+                <tr>
+                    <td style='width:40px; '>序号</td>
+                    <td>名称</td>
+                    <td>数据类型</td>
+                    <td>长度</td>
+                    <td>小数位</td>
+                    <td>允许空值</td>
+                    <td>主键</td>
+                    <td>默认值</td>
+                    <td>说明</td>
+                </tr>
+            </thead>
+            <tr>
+                <td style='text-align:center;'>1</td>
+                <td>id</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'>Y</td>
+                <td></td>
+                <td align='center'>自增ID</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>2</td>
+                <td>versionID</td>
+                <td align='center'>varchar(25)</td>
+                <td align='center'>25</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>版本号</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>3</td>
+                <td>filename</td>
+                <td align='center'>varchar(100)</td>
+                <td align='center'>100</td>
+                <td align='center'>0</td>
+                <td align='center'>N</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>客户端文件名</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>4</td>
+                <td>describe</td>
+                <td align='center'>varchar(255)</td>
+                <td align='center'>255</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>版本描述</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>5</td>
+                <td>createtime</td>
+                <td align='center'>datetime</td>
+                <td align='center'>23</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>创建时间</td>
+            </tr>
+            <tr>
+                <td style='text-align:center;'>6</td>
+                <td>flg</td>
+                <td align='center'>int</td>
+                <td align='center'>10</td>
+                <td align='center'>0</td>
+                <td align='center'>Y</td>
+                <td align='center'></td>
+                <td></td>
+                <td align='center'>是否启用</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

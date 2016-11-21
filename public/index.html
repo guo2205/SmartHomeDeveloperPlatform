@@ -69,7 +69,7 @@
 								<a href="projects.html" data-toggle="dropdown" class="dropdown-toggle">用户中心<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li><a href="#">已开通服务</a></li>
-									<li><a href="#">我的应用</a></li>
+									<li><a href="#" onclick="alert('请先登录')">我的应用</a></li>
 									<li><a href="#">数据分析</a></li>
 								</ul>
 							</li>
@@ -428,10 +428,8 @@
                     var $btn = $("#btn_login");
                     $btn.on(
                         "click", function () {
-                            alert("正在登陆");
                             var $username = $("#username").val();
                             var $password = $("#password").val();
-                            alert($username + "," + $password);
                             $.ajax({
                                 url: "http://lingfeng.me/api/login",
                                 data: { "user": $username, "password": $password },
