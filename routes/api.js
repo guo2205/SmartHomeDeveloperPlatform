@@ -6,7 +6,7 @@ var router = express.Router();
 var pool;
 router.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Origin", "http://lingfeng.me");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
     res.header("X-Powered-By", ' 3.2.1');
@@ -16,7 +16,7 @@ router.all('*', function (req, res, next) {
             connectionLimit: 1000,
             host: '47.89.23.37',
             user: 'root',
-            password: 'hb10Good',
+            password: '',
             database: 'zhinengjiaju'
         });
     }

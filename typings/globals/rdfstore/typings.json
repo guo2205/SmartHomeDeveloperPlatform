@@ -1,0 +1,11 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "",
+    "raw": "",
+    "main": "index.d.ts",
+    "version": "0.9.17",
+    "name": "rdfstore",
+    "type": "typings"
+  }
+}
